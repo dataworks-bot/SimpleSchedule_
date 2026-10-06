@@ -1,40 +1,13 @@
 # SimpleSchedule
-An automated shift scheduling tool built in Python. Assigns employees to 8 hour morning, evening, or night shifts for 24/7 coverage, using depth-first search with backtracking to ensure fairness and compliance with constraints.
 
----
+Based on the open-source project name-dinosaur/SimpleSchedule.
 
-## Features
+## My changes
+- Added a Leave column so employees on leave are not assigned shifts
+- Extended scheduling.py with a few lines of code to read the Leave column
+- Checked the result: Employee 1 and Employee 9 lost their shifts on their leave days
 
-- Reads employee availability from Excel
-- Assigns 2 employees per shift, 3 shifts/day
-- Ensures no double shifts or night → morning transitions
-- Gives priority to under-scheduled employees
-- Generates a color-coded Excel schedule
-
----
-
-## Input Format
-
-Place the Excel file `Employee_Availability.xlsx` in the project folder.
-
----
-
-## Output
-
-An Excel file named `Schedule.xlsx` is generated in the same folder. It shows:
-- One row per employee
-- One column per day
-- Color-coded shift assignments:
-  - Morning → light yellow
-  - Evening → light blue
-  - Night → light red
-  - Unassigned → black
-
----
-
-## How to Run
-
-### Option 1: Python Script
-1. Install requirements:
-   ```bash
-   pip install pandas openpyxl
+## How the schedule works
+- One shift per person per day
+- No morning shift after a night shift
+- People with the fewest hours are assigned first
